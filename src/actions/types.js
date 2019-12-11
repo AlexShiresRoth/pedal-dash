@@ -1,0 +1,1 @@
+export const SEARCH_PEDALS = 'SEARCH_PEDALS';
