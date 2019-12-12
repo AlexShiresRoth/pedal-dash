@@ -8,11 +8,9 @@ const Listings = ({ pedalRes, loading }) => {
 		<div className={listingStyles.listings__container}>
 			<PedalItems listings={pedalRes.listings} />
 		</div>
-	) : loading ? (
-		<p>Loading Results...</p>
 	) : (
-		<div>
-			<p>Waiting For Results...</p>
+		<div className={listingStyles.listings__container}>
+			<p>Waiting for search...</p>
 		</div>
 	);
 };

@@ -15,3 +15,13 @@
 	border-bottom: 1px solid #eee;
 	width: 100%;
 }
+.listings__results {
+	position: relative;
+	display: flex;
+	& svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+}
