@@ -1,9 +1,30 @@
+@import '../../../../sass/variables';
+
 .pedal {
-    background: #f3f3f3;
-    border-radius:5px;
-    box-shadow: 0 2px 2px darken(#eee,20%);
-    & img {
-        max-width: 5rem;
-        border-radius: 50%;
-    }
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: #f3f3f3;
+	box-shadow: 0 4px 4px darken($brand-accent, 10%);
+	border-radius: 5px;
+	position: relative;
+	& img {
+		max-width: 5rem;
+		border-radius: 50%;
+		z-index: 1;
+	}
+	& p {
+		color: $brand-text;
+		font-family: 'Fugaz One', sans-serif, serif;
+		z-index: 1;
+	}
+	& svg {
+		width: 100%;
+		position: absolute;
+		top: 0;
+		z-index: 0;
+		& path {
+			width: 100%;
+		}
+	}
 }

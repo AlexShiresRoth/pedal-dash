@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PedalItems from './listings/PedalItems';
 import listingStyles from './listingstyles/Listings.module.scss';
+
 const Listings = ({ pedalRes, loading }) => {
 	return pedalRes.listings && !loading ? (
 		<div className={listingStyles.listings__container}>
