@@ -1,1 +1,2 @@
 export const SEARCH_PEDALS = 'SEARCH_PEDALS';
+export const SEARCH_BRANDS = 'SEARCH_BRANDS';

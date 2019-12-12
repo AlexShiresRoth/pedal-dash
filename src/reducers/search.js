@@ -1,6 +1,7 @@
-import { SEARCH_PEDALS } from '../actions/types';
+import { SEARCH_PEDALS, SEARCH_BRANDS } from '../actions/types';
 const initialState = {
 	pedalRes: [],
+	brands: [],
 	loading: true,
 };
 
@@ -11,6 +12,12 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				pedalRes: payload,
+				loading: false,
+			};
+		case SEARCH_BRANDS:
+			return {
+				...state,
+				brands: payload,
 				loading: false,
 			};
 		default:
