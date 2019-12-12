@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Fugaz+One|Lato&display=swap');
+
+@import './variables';
+*,
+html,
+body {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background: #eee;
+}
+
+h1 {
+	font-family: 'Fugaz One', sans-serif, serif;
+	color: $brand-text;
+	font-size: 2.5rem;
+}
+p {
+	color: $brand-text;
+	font-family: 'Lato', sans-serif, serif;
+}

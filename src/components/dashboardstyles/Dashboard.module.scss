@@ -1,0 +1,17 @@
+.dashboard {
+	min-height: 60vh;
+	min-width: 80vw;
+	background: #f3f3f3;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 4px 4px darken(#eee, 10%);
+	border-radius: 5px;
+}
+.nav__top {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	border-bottom: 1px solid #eee;
+	width: 100%;
+}

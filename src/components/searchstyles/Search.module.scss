@@ -1,0 +1,45 @@
+@import '../../../sass/variables';
+.form {
+	display: flex;
+	flex-direction: column;
+
+	& .input__row {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: nowrap;
+		transition: all 0.3s ease-in-out;
+		border-radius: 5px;
+
+		& input {
+			padding: 0.5rem;
+			font-size: 16px;
+			background: transparent;
+			border: 1px solid transparent;
+			border-bottom: 1px solid $brand-accent;
+			transition: all 0.3s ease-in-out;
+			&:hover {
+				border: 1px solid $brand-accent;
+				border-radius: 5px;
+			}
+		}
+		& button {
+			padding: 0.5rem;
+			font-size: 16px;
+			color: $brand-accent;
+			border: 0;
+			background: #eee;
+			border-radius: 20px;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			transition: all 0.3s ease-in-out;
+			&:hover {
+				box-shadow: 0 4px 4px darken(#eee, 10%);
+				cursor: pointer;
+			}
+		}
+	}
+}
