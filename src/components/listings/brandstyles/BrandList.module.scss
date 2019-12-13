@@ -5,12 +5,14 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin: 0.5rem;
-	padding: 0.5rem;
+	min-width:5rem;
+	margin: 0.2rem;
+	padding:.2rem;
 	box-shadow: 0 1px 1px $brand-accent;
 	border-radius: 2px;
 	transition: all 0.2s ease-in-out;
 	& p {
+		font-size: .9rem;
 		text-align: center;
 		color: #f3f3f3;
 		font-family: 'Fugaz One', sans-serif, serif;
