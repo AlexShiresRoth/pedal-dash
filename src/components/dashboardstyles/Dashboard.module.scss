@@ -3,7 +3,7 @@
 .dashboard {
 	min-height: 80vh;
 	min-width: 80vw;
-	max-width:95vw;
+	max-width: 95vw;
 	background: #f3f3f3;
 	display: flex;
 	flex-direction: column;
@@ -17,18 +17,7 @@
 	align-items: center;
 	border-bottom: 1px solid #eee;
 	width: 100%;
-	position: relative;
-	& .wave {
-		position: absolute;
-		top: 100%;
-		left: 0;
-		width: 100%;
-		z-index: 0;
-	}
-}
-.listings__results {
-	position: relative;
-	display: flex;
+	z-index: 2;
 }
 .brands__list {
 	position: relative;
@@ -38,8 +27,23 @@
 	justify-content: space-around;
 	overflow-x: auto;
 	padding: 0 4rem;
+	z-index: 3;
+	background: rgba(0, 153, 117, 0.6);
+	box-shadow: inset 0px 0px 2px rgba(0, 153, 117, 1);
 	&::-webkit-scrollbar {
 		width: 0px; /* Remove scrollbar space */
 		background: transparent; /* Optional: just make scrollbar invisible */
 	}
+}
+.listings__results {
+	position: relative;
+	display: flex;
+	z-index: 2;
+}
+.pedal__view {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	z-index: 2;
 }

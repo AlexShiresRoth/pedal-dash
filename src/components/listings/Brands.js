@@ -14,14 +14,13 @@ const Brands = ({ getBrands, brands, loading }) => {
 			return brand.make;
 		})
 		.filter((brand, i, arr) => {
-			console.log(arr.indexOf(brand) === i);
 			return arr.indexOf(brand) === i;
 		});
 
 	const brandList = removeDupes.map((brand, i) => {
 		return (
 			<div key={i} className={brandStyles.brand}>
-				<p>{brand}</p>
+				<p>{brand.length > 15 ? brand.substr(0, 15) + '...' : brand}</p>
 			</div>
 		);
 	});

@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PedalItems from './listings/PedalItems';
 import listingStyles from './listingstyles/Listings.module.scss';
+import { getPedal } from '../actions/search';
+const Listings = ({ pedalRes, loading, brands, getPedal }) => {
+	useEffect(() => {
+		getPedal(brands[0]);
+		return () => getPedal(brands[0]);
+	}, []);
 
-const Listings = ({ pedalRes, loading }) => {
 	return pedalRes.listings && !loading ? (
 		<div className={listingStyles.listings__container}>
 			<PedalItems listings={pedalRes.listings} />
@@ -24,7 +29,8 @@ const mapStateToProps = state => {
 	return {
 		pedalRes: state.search.pedalRes,
 		loading: state.search.loading,
+		brands: state.search.brands,
 	};
 };
 
-export default connect(mapStateToProps)(Listings);
+export default connect(mapStateToProps, { getPedal })(Listings);

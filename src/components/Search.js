@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { getPedals } from '../actions/search';
 import searchStyles from './searchstyles/Search.module.scss';
 
-const Search = ({ getPedals, loading }) => {
+const Search = ({ getPedals, loading, brands }) => {
 	const [formData, setFormData] = useState({
 		query: '',
 	});

@@ -1,14 +1,13 @@
 .listings__container {
-	display: grid;
-	grid-template-columns: repeat(5,auto);
-	grid-template-rows: auto;
-	justify-items:center;
-	align-content: center;
-	gap: 1rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: nowrap;
 	overflow-x: auto;
 	overflow-y: hidden;
-	flex-wrap: wrap;
 	position: relative;
-	padding: 1rem;
-	
+	&::-webkit-scrollbar {
+		width: 0px; /* Remove scrollbar space */
+		background: transparent; /* Optional: just make scrollbar invisible */
+	}
 }

@@ -25,6 +25,29 @@ export const getPedals = formData => async dispatch => {
 	}
 };
 
+export const getPedal = brand => async dispatch => {
+	try {
+		const config = {
+			headers: {
+				'Content-Type': 'application/hal+json',
+				Authorization: `Bearer ${reverbApiKey}`,
+				'Accept-Version': '3.0',
+			},
+		};
+		console.log(brand);
+		const res = await axios.get(
+			`https://api.reverb.com/api/listings/all?category_uuid=fa10f97c-dd98-4a8f-933b-8cb55eb653dd&make=${brand.make}`,
+			config
+		);
+		dispatch({
+			type: SEARCH_PEDALS,
+			payload: res.data,
+		});
+	} catch (error) {
+		console.error(error);
+	}
+};
+
 export const getBrands = () => async dispatch => {
 	try {
 		const config = {

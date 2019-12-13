@@ -5,11 +5,11 @@
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
-	background: #f3f3f3;
-	box-shadow: 0 4px 4px #eee;
+	background: #eee;
+	box-shadow: 0 4px 4px darken(#eee, 20%);
 	border-radius: 2px;
-    position: relative;
-    padding: 1rem;
+	position: relative;
+	padding: 1rem;
 	& img {
 		max-width: 5rem;
 		border-radius: 50%;
