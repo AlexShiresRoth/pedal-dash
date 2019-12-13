@@ -1,7 +1,7 @@
 .dashboard {
 	min-height: 60vh;
 	min-width: 80vw;
-	max-width: 85vw;
+	max-width: 95vw;
 	background: #f3f3f3;
 	display: flex;
 	flex-direction: column;
@@ -15,6 +15,14 @@
 	align-items: center;
 	border-bottom: 1px solid #eee;
 	width: 100%;
+	position: relative;
+	& .wave {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		z-index: 0;
+	}
 }
 .listings__results {
 	position: relative;
@@ -22,16 +30,14 @@
 }
 .brands__list {
 	position: relative;
+	left: 0;
 	display: flex;
 	flex-direction: row;
-	& svg {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		z-index: 0;
-	}
-	& p {
-		z-index: 1;
+	justify-content: space-around;
+	overflow-x: auto;
+	padding: 0 4rem;
+	&::-webkit-scrollbar {
+		width: 0px; /* Remove scrollbar space */
+		background: transparent; /* Optional: just make scrollbar invisible */
 	}
 }

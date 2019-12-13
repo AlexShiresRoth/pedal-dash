@@ -16,7 +16,6 @@ export const getPedals = formData => async dispatch => {
 			`https://api.reverb.com/api/listings/all?category_uuid=fa10f97c-dd98-4a8f-933b-8cb55eb653dd&make=${formData.query}&model=${formData.query}`,
 			config
 		);
-		console.log(res);
 		dispatch({
 			type: SEARCH_PEDALS,
 			payload: res.data,
@@ -39,7 +38,6 @@ export const getBrands = () => async dispatch => {
 			`https://api.reverb.com/api/listings/all?category_uuid=fa10f97c-dd98-4a8f-933b-8cb55eb653dd`,
 			config
 		);
-		console.log(res.data.listings);
 		dispatch({
 			type: SEARCH_BRANDS,
 			payload: res.data.listings,

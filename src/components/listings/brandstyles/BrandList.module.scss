@@ -1,0 +1,22 @@
+@import '../../../../sass/variables';
+
+.brand {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0.5rem;
+	padding: 0.5rem;
+	box-shadow: 0 1px 1px $brand-accent;
+	border-radius: 2px;
+	transition: all 0.2s ease-in-out;
+	& p {
+		text-align: center;
+		color: #f3f3f3;
+		font-family: 'Fugaz One', sans-serif, serif;
+	}
+	&:hover {
+		cursor: pointer;
+		box-shadow: 0 5px 5px $brand-accent;
+	}
+}
