@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { MdSearch, MdClose } from 'react-icons/md';
 import { connect } from 'react-redux';
-import { getPedals } from '../actions/search';
+import { getPedals, clearData } from '../actions/search';
 import searchStyles from './searchstyles/Search.module.scss';
 
-const Search = ({ getPedals, loading, brands }) => {
+const Search = ({ getPedals, loading, brands, clearData }) => {
 	const [formData, setFormData] = useState({
 		query: '',
 	});
@@ -26,10 +26,11 @@ const Search = ({ getPedals, loading, brands }) => {
 
 	const clearSearch = e => {
 		e.preventDefault();
-		getPedals([]);
-		return setFormData({
+
+		setFormData({
 			query: '',
 		});
+		clearData();
 	};
 
 	return (
@@ -65,4 +66,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { getPedals })(Search);
+export default connect(mapStateToProps, { getPedals, clearData })(Search);

@@ -24,9 +24,8 @@
 	left: 0;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: flex-start;
 	overflow-x: auto;
-	padding: 0 4rem;
 	z-index: 3;
 	background: rgba(0, 153, 117, 0.6);
 	box-shadow: inset 0px 0px 2px rgba(0, 153, 117, 1);

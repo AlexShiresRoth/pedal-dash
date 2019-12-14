@@ -3,18 +3,22 @@
 .pedal {
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-start;
+	justify-content: space-around;
 	align-items: center;
 	background: #eee;
 	box-shadow: 0 4px 4px darken(#eee, 20%);
 	border-radius: 2px;
 	position: relative;
-	min-height: 5rem;
+	min-height: 6rem;
+	min-width: 12rem;
 	transition: all 0.3s ease-in-out;
 	&:hover {
 		cursor: pointer;
-		transform: scale(1.05);
 		box-shadow: 0 6px 6px darken(#eee, 25%);
+		background: rgba(0, 153, 117, 0.6);
+	}
+	&:hover p {
+		color: #f3f3f3;
 	}
 	& img {
 		max-width: 5rem;
@@ -22,6 +26,7 @@
 		z-index: 1;
 	}
 	& p {
+		transition: all 0.3s ease-in-out;
 		color: $brand-text;
 		font-family: 'Fugaz One', sans-serif, serif;
 		z-index: 1;

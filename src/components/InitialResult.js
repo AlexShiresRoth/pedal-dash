@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import resStyles from './resultstyles/InitialResult.module.scss';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { connect } from 'react-redux';
 
 const InitialResult = ({ brands, loading }) => {
 	const [pedalIndex, loadNextPedal] = useState(0);
 	const viewPedal = brands[pedalIndex];
+
+	const changeIndexNext = () => {
+		return loadNextPedal(prevIndex => (prevIndex === brands.length - 1 ? (prevIndex = 0) : (prevIndex += 1)));
+	};
+
+	const changeIndexBack = () => {
+		return loadNextPedal(prevIndex => (prevIndex > 0 ? (prevIndex -= 1) : (prevIndex = brands.length - 1)));
+	};
+
 	const svgWave = (
 		<svg className={resStyles.wave} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
 			<path
@@ -26,13 +36,17 @@ const InitialResult = ({ brands, loading }) => {
 
 	const removeHtmlTags = content => {
 		return content.replace(
-			/<div>|<\/div>|<br>|<\/br>|<p>|<\/p>|<span>|<\/span>|<strong>|<\/strong>|<b>|<\/b>/g,
+			/<div>|<\/div>|<br>|<\/br>|<p>|<\/p>|<span>|<\/span>|<strong>|<\/strong>|<b>|<\/b>|<i>|<\/i>|<u>|<\/u>/g,
 			''
 		);
 	};
+
 	return !loading ? (
 		<div className={resStyles.pedal__container}>
 			{svgWave}
+			<div className={resStyles.back__button} onClick={e => changeIndexBack(e)}>
+				<MdChevronLeft />
+			</div>
 			<div className={resStyles.column}>
 				<div className={resStyles.image__container}>
 					<img src={viewPedal.photos[0]._links.large_crop.href} alt={viewPedal.model}></img>
@@ -73,6 +87,9 @@ const InitialResult = ({ brands, loading }) => {
 					<span>Year:</span>
 					<p>{viewPedal.year !== '' ? viewPedal.year : 'N/A'}</p>
 				</div>
+			</div>
+			<div className={resStyles.next__button} onClick={e => changeIndexNext(e)}>
+				<MdChevronRight />
 			</div>
 		</div>
 	) : (

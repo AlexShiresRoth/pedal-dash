@@ -5,11 +5,6 @@ import PedalItems from './listings/PedalItems';
 import listingStyles from './listingstyles/Listings.module.scss';
 import { getPedal } from '../actions/search';
 const Listings = ({ pedalRes, loading, brands, getPedal }) => {
-	useEffect(() => {
-		getPedal(brands[0]);
-		return () => getPedal(brands[0]);
-	}, []);
-
 	return pedalRes.listings && !loading ? (
 		pedalRes.listings.length > 0 ? (
 			<div className={listingStyles.listings__container}>

@@ -5,14 +5,25 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	min-width:5rem;
+	min-width: 7rem;
 	margin: 0.2rem;
-	padding:.2rem;
+	padding: 0.2rem;
 	box-shadow: 0 1px 1px $brand-accent;
 	border-radius: 2px;
 	transition: all 0.2s ease-in-out;
+	&::after {
+		content: '';
+		width: 0px;
+		height: 2px;
+		background: transparent;
+		transition: all 0.3s ease-in;
+	}
+	&:hover::after {
+		width: 100%;
+		background: #f3f3f3;
+	}
 	& p {
-		font-size: .9rem;
+		font-size: 0.9rem;
 		text-align: center;
 		color: #f3f3f3;
 		font-family: 'Fugaz One', sans-serif, serif;

@@ -1,4 +1,4 @@
-import { SEARCH_PEDALS, SEARCH_BRANDS } from './types';
+import { SEARCH_PEDALS, SEARCH_BRANDS, CLEAR_DATA } from './types';
 import axios from 'axios';
 import { reverbApiKey } from '../config/default.json';
 
@@ -13,7 +13,8 @@ export const getPedals = formData => async dispatch => {
 		};
 		console.log(formData);
 		const res = await axios.get(
-			`https://api.reverb.com/api/listings/all?category_uuid=fa10f97c-dd98-4a8f-933b-8cb55eb653dd&make=${formData.query}&model=${formData.query}`,
+			`https://api.reverb.com/api/listings/all?category_uuid=fa10f97c-dd98-4a8f-933b-8cb55eb653dd&make=${formData.query ||
+				formData}&model=${formData.query}`,
 			config
 		);
 		dispatch({
@@ -42,6 +43,17 @@ export const getPedal = brand => async dispatch => {
 		dispatch({
 			type: SEARCH_PEDALS,
 			payload: res.data,
+		});
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+export const clearData = () => async dispatch => {
+	try {
+		dispatch({
+			type: CLEAR_DATA,
+			payload: null,
 		});
 	} catch (error) {
 		console.error(error);

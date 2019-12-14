@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getBrands } from '../../actions/search';
+import { getBrands, getPedals } from '../../actions/search';
 import brandStyles from './brandstyles/BrandList.module.scss';
 
-const Brands = ({ getBrands, brands, loading }) => {
+const Brands = ({ getBrands, brands, loading, getPedals }) => {
 	useEffect(() => {
 		getBrands();
 	}, []);
+
+	const onClick = e => getPedals(e.target.textContent);
 
 	const removeDupes = brands
 		.map((brand, i) => {
@@ -19,7 +21,7 @@ const Brands = ({ getBrands, brands, loading }) => {
 
 	const brandList = removeDupes.map((brand, i) => {
 		return (
-			<div key={i} className={brandStyles.brand}>
+			<div key={i} className={brandStyles.brand} onClick={e => onClick(e)}>
 				<p>{brand.length > 15 ? brand.substr(0, 15) + '...' : brand}</p>
 			</div>
 		);
@@ -44,4 +46,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { getBrands })(Brands);
+export default connect(mapStateToProps, { getBrands, getPedals })(Brands);
