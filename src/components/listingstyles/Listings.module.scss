@@ -8,6 +8,7 @@
 	position: relative;
 	&::-webkit-scrollbar {
 		width: 0px; /* Remove scrollbar space */
-		background: transparent; /* Optional: just make scrollbar invisible */
+		background: transparent;
+		height: 0; /* Optional: just make scrollbar invisible */
 	}
 }

@@ -9,7 +9,13 @@
 	box-shadow: 0 4px 4px darken(#eee, 20%);
 	border-radius: 2px;
 	position: relative;
-	padding: 1rem;
+	min-height: 5rem;
+	transition: all 0.3s ease-in-out;
+	&:hover {
+		cursor: pointer;
+		transform: scale(1.05);
+		box-shadow: 0 6px 6px darken(#eee, 25%);
+	}
 	& img {
 		max-width: 5rem;
 		border-radius: 50%;

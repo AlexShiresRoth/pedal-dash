@@ -8,7 +8,7 @@ const PedalItem = ({ listings }) => {
 		return (
 			<div className={pedalStyles.pedal} key={i}>
 				<img src={pedal.photos[0]._links ? pedal.photos[0]._links.thumbnail.href : ''} alt="guitar pedal" />
-				<p>{pedal.model}</p>
+				<p>{pedal.model.length > 15 ? pedal.model.substr(0, 15) + '...' : pedal.model}</p>
 			</div>
 		);
 	});

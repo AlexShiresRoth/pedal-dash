@@ -42,7 +42,7 @@
 }
 .pedal__view {
 	display: flex;
-	justify-content: center;
+	flex-direction: row;
 	align-items: center;
 	position: relative;
 	z-index: 2;

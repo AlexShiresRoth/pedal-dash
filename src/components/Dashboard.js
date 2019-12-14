@@ -19,7 +19,7 @@ const Dashboard = ({ pedalRes }) => {
 			<div className={dashboardStyles.listings__results}>
 				<Listings />
 			</div>
-			<div className={dashboardStyles.pedal__view} style={pedalRes.listings ? { margin: '-2rem 0' } : null}>
+			<div className={dashboardStyles.pedal__view}>
 				<InitialResult />
 			</div>
 		</div>

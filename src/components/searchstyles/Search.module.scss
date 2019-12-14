@@ -41,5 +41,8 @@
 				cursor: pointer;
 			}
 		}
+		& button:last-child {
+			background: transparent;
+		}
 	}
 }

@@ -11,9 +11,15 @@ const Listings = ({ pedalRes, loading, brands, getPedal }) => {
 	}, []);
 
 	return pedalRes.listings && !loading ? (
-		<div className={listingStyles.listings__container}>
-			<PedalItems listings={pedalRes.listings} />
-		</div>
+		pedalRes.listings.length > 0 ? (
+			<div className={listingStyles.listings__container}>
+				<PedalItems listings={pedalRes.listings} />
+			</div>
+		) : (
+			<div className={listingStyles.listings__container}>
+				<p>Waiting for search...</p>
+			</div>
+		)
 	) : (
 		<div className={listingStyles.listings__container}>
 			<p>Waiting for search...</p>

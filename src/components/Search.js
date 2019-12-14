@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { MdSearch } from 'react-icons/md';
+import { MdSearch, MdClose } from 'react-icons/md';
 import { connect } from 'react-redux';
 import { getPedals } from '../actions/search';
 import searchStyles from './searchstyles/Search.module.scss';
@@ -23,6 +23,15 @@ const Search = ({ getPedals, loading, brands }) => {
 		e.preventDefault();
 		getPedals(formData);
 	};
+
+	const clearSearch = e => {
+		e.preventDefault();
+		getPedals([]);
+		return setFormData({
+			query: '',
+		});
+	};
+
 	return (
 		<form onSubmit={e => onSubmit(e)} className={searchStyles.form}>
 			<div className={searchStyles.input__row}>
@@ -37,6 +46,9 @@ const Search = ({ getPedals, loading, brands }) => {
 					placeholder="Earthquaker Devices"
 					required
 				></input>
+				<button onClick={e => clearSearch(e)}>
+					<MdClose />
+				</button>
 			</div>
 		</form>
 	);
