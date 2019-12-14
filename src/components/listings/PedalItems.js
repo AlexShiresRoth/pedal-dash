@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import pedalStyles from './pedalstyles/PedalItem.module.scss';
+import { connect } from 'react-redux';
 const PedalItem = ({ listings }) => {
-	const [max, setMax] = useState(5);
-	const splitArr = listings.slice(0, max);
+	const onClick = e => {};
 	const pedals = listings.map((pedal, i) => {
 		return (
 			<div className={pedalStyles.pedal} key={i}>
@@ -19,4 +19,10 @@ PedalItem.propTypes = {
 	listings: PropTypes.array.isRequired,
 };
 
-export default PedalItem;
+const mapStateToProps = state => {
+	return {
+		pedalRes: state.search.pedalRes,
+	};
+};
+
+export default connect(mapStateToProps)(PedalItem);
