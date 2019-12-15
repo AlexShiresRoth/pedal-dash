@@ -1,19 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import resStyles from './resultstyles/InitialResult.module.scss';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { connect } from 'react-redux';
+import { setIndex } from '../actions/search';
 
-const InitialResult = ({ brands, loading }) => {
-	const [pedalIndex, loadNextPedal] = useState(0);
-	const viewPedal = brands[pedalIndex];
-
+const InitialResult = ({ loading, pedalRes, pedalIndex, setIndex }) => {
 	const changeIndexNext = () => {
-		return loadNextPedal(prevIndex => (prevIndex === brands.length - 1 ? (prevIndex = 0) : (prevIndex += 1)));
+		return pedalIndex === pedalRes.listings.length - 1 ? setIndex((pedalIndex = 0)) : setIndex((pedalIndex += 1));
 	};
 
 	const changeIndexBack = () => {
-		return loadNextPedal(prevIndex => (prevIndex > 0 ? (prevIndex -= 1) : (prevIndex = brands.length - 1)));
+		return pedalIndex !== 0 ? setIndex((pedalIndex -= 1)) : setIndex(pedalRes.listings.length - 1);
 	};
 
 	const svgWave = (
@@ -28,8 +26,8 @@ const InitialResult = ({ brands, loading }) => {
 	const pedalKnob = (
 		<svg className={resStyles.pedal__knob} viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 			<g>
-				<circle cx="50" cy="50" r="50" fill="transparent" stroke="#009975" strokeWidth="5px" />
-				<line className={resStyles.line} x1="-15" y1="50" x2="50" y2="50" stroke="#009975" strokeWidth="5px" />
+				<circle cx="50" cy="50" r="50" fill="transparent" stroke="#009975" strokeWidth="7px" />
+				<line className={resStyles.line} x1="-15" y1="50" x2="50" y2="50" stroke="#009975" strokeWidth="7px" />
 			</g>
 		</svg>
 	);
@@ -40,8 +38,7 @@ const InitialResult = ({ brands, loading }) => {
 			''
 		);
 	};
-
-	return !loading ? (
+	return pedalRes.listings && !loading ? (
 		<div className={resStyles.pedal__container}>
 			{svgWave}
 			<div className={resStyles.back__button} onClick={e => changeIndexBack(e)}>
@@ -49,43 +46,50 @@ const InitialResult = ({ brands, loading }) => {
 			</div>
 			<div className={resStyles.column}>
 				<div className={resStyles.image__container}>
-					<img src={viewPedal.photos[0]._links.large_crop.href} alt={viewPedal.model}></img>
+					<img
+						src={
+							pedalRes.listings[pedalIndex] !== null
+								? pedalRes.listings[pedalIndex].photos[0]._links.large_crop.href
+								: ''
+						}
+						alt={pedalRes.listings[pedalIndex].model}
+					></img>
 				</div>
 			</div>
 			<div className={resStyles.column}>
 				<div className={resStyles.container}>
 					{pedalKnob}
 					<span>Model:</span>
-					<p>{viewPedal.model}</p>
+					<p>{pedalRes.listings[pedalIndex].model}</p>
 				</div>
 				<div className={resStyles.container}>
 					{pedalKnob}
 					<span>Brand:</span>
-					<p>{viewPedal.make}</p>
+					<p>{pedalRes.listings[pedalIndex].make}</p>
 				</div>
 				<div className={resStyles.container}>
 					{pedalKnob}
 					<span>Title:</span>
-					<p>{viewPedal.title}</p>
+					<p>{pedalRes.listings[pedalIndex].title}</p>
 				</div>
 				<div className={resStyles.container}>
 					{pedalKnob}
 					<span>Description:</span>
 					<p>
-						{removeHtmlTags(viewPedal.description).length > 200
-							? removeHtmlTags(viewPedal.description).substr(0, 200) + '...'
-							: removeHtmlTags(viewPedal.description)}
+						{removeHtmlTags(pedalRes.listings[pedalIndex].description).length > 200
+							? removeHtmlTags(pedalRes.listings[pedalIndex].description).substr(0, 200) + '...'
+							: removeHtmlTags(pedalRes.listings[pedalIndex].description)}
 					</p>
 				</div>
 				<div className={resStyles.container}>
 					{pedalKnob}
 					<span>Type:</span>
-					<p>{viewPedal.categories[0].full_name}</p>
+					<p>{pedalRes.listings[pedalIndex].categories[0].full_name}</p>
 				</div>
 				<div className={resStyles.container}>
 					{pedalKnob}
 					<span>Year:</span>
-					<p>{viewPedal.year !== '' ? viewPedal.year : 'N/A'}</p>
+					<p>{pedalRes.listings[pedalIndex].year !== '' ? pedalRes.listings[pedalIndex].year : 'N/A'}</p>
 				</div>
 			</div>
 			<div className={resStyles.next__button} onClick={e => changeIndexNext(e)}>
@@ -106,6 +110,8 @@ const mapStateToProps = state => {
 	return {
 		brands: state.search.brands,
 		loading: state.search.loading,
+		pedalRes: state.search.pedalRes,
+		pedalIndex: state.search.pedalIndex,
 	};
 };
-export default connect(mapStateToProps)(InitialResult);
+export default connect(mapStateToProps, { setIndex })(InitialResult);

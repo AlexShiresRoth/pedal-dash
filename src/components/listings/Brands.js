@@ -22,7 +22,7 @@ const Brands = ({ getBrands, brands, loading, getPedals }) => {
 	const brandList = removeDupes.map((brand, i) => {
 		return (
 			<div key={i} className={brandStyles.brand} onClick={e => onClick(e)}>
-				<p>{brand.length > 15 ? brand.substr(0, 15) + '...' : brand}</p>
+				<p>{brand}</p>
 			</div>
 		);
 	});

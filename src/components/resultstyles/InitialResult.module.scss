@@ -11,6 +11,7 @@
 	box-shadow: 0 4px 4px darken(#eee, 20%);
 	position: relative;
 	min-height: 30rem;
+	overflow-y: hidden;
 	& .wave {
 		position: absolute;
 		top: 0;
@@ -147,6 +148,7 @@
 				& .line {
 					transform-origin: 50% 50%;
 					animation: animline 1s linear forwards;
+					animation-delay: 1s;
 					transition: all 0.4s ease;
 				}
 			}

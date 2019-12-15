@@ -10,17 +10,20 @@
 	border-radius: 2px;
 	position: relative;
 	min-height: 6rem;
-	min-width: 12rem;
+	min-width: 15rem;
 	transition: all 0.3s ease-in-out;
+	overflow-y: hidden;
 	&:hover {
 		cursor: pointer;
 		box-shadow: 0 6px 6px darken(#eee, 25%);
 		background: rgba(0, 153, 117, 0.6);
 	}
+
 	&:hover p {
 		color: #f3f3f3;
 	}
 	& img {
+		min-width: 5rem;
 		max-width: 5rem;
 		border-radius: 50%;
 		z-index: 1;
@@ -39,5 +42,14 @@
 		& path {
 			width: 100%;
 		}
+	}
+}
+
+.active {
+	box-shadow: 0 6px 6px darken(#eee, 25%);
+	background: rgba(0, 153, 117, 0.6);
+
+	& p {
+		color: #f3f3f3;
 	}
 }
