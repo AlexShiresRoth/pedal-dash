@@ -19,7 +19,7 @@ const Dashboard = ({ getPedal }) => {
 
 	useEffect(() => {
 		getPedal();
-		return cancelAnimationFrame(animationRef.current);
+		return () => cancelAnimationFrame(animationRef.current);
 	}, []);
 
 	const brandsRef = useRef();
@@ -69,6 +69,8 @@ const Dashboard = ({ getPedal }) => {
 					className={dashboardStyles.scroll__left}
 					onMouseDown={e => onScrollLeft(e)}
 					onMouseUp={e => onDrop(e)}
+					onTouchStart={e => onScrollLeft(e)}
+					onTouchEnd={e => onDrop(e)}
 				>
 					<MdChevronLeft />
 				</button>
@@ -78,6 +80,8 @@ const Dashboard = ({ getPedal }) => {
 				<button
 					className={dashboardStyles.scroll__right}
 					onMouseDown={e => onScrollRight(e)}
+					onTouchStart={e => onScrollRight(e)}
+					onTouchEnd={e => onDrop(e)}
 					onMouseUp={e => onDrop(e)}
 				>
 					<MdChevronRight />

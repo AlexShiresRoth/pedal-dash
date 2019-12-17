@@ -31,12 +31,12 @@ const InitialResult = ({ loading, pedalRes, pedalIndex, setIndex }) => {
 			</g>
 		</svg>
 	);
+	console.log(pedalRes);
 
+	//take the descriptions and remove any html
 	const removeHtmlTags = content => {
-		return content.replace(
-			/<div>|<\/div>|<br>|<\/br>|<p>|<\/p>|<span>|<\/span>|<strong>|<\/strong>|<b>|<\/b>|<i>|<\/i>|<u>|<\/u>/g,
-			''
-		);
+		//need to convert &amp; to their corresponding tags: "&"
+		return content.replace(/(<[a-zA-Z]>)|(<\/[a-zA-Z]>)|<br>|<\/br>/g, '');
 	};
 	return pedalRes.listings && !loading ? (
 		<div className={resStyles.pedal__container}>
@@ -94,6 +94,27 @@ const InitialResult = ({ loading, pedalRes, pedalIndex, setIndex }) => {
 			</div>
 			<div className={resStyles.next__button} onClick={e => changeIndexNext(e)}>
 				<MdChevronRight />
+			</div>
+			<div className={resStyles.links__row}>
+				<div className={resStyles.box}>
+					<a
+						href={pedalRes.listings[pedalIndex]._links.web.href}
+						alt={pedalRes.listings[pedalIndex]._links.web.href}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Wanna buy this?
+					</a>
+				</div>
+				<div className={resStyles.box}>
+					<p>{pedalRes.listings[pedalIndex].price.display}</p>
+				</div>
+				<div className={resStyles.box}>
+					<p>{pedalRes.listings[pedalIndex].shop_name}</p>
+				</div>
+				<div className={resStyles.box}>
+					<p>In Stock Amount:{pedalRes.listings[pedalIndex].inventory}</p>
+				</div>
 			</div>
 		</div>
 	) : (
