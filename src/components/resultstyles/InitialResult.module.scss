@@ -163,16 +163,53 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		margin-top: 2rem;
-		& .box {
+		& .box:nth-child(odd) {
 			padding: 1rem;
 			border: 1px solid $brand-accent;
+			background: $brand-accent;
+			border-radius: 2px;
 			width: 100%;
+			transition: all .4s ease-in-out;
 			& a,
 			p {
+				color: #f3f3f3;
+				font-family: 'Fugaz One', sans-serif,serif;
+				text-decoration: none;
+				text-transform: uppercase;
+				transition: all .4s ease-in-out;
+			}
+			&:hover{
+				cursor: pointer;
+				background: #f3f3f3;
+				border: 1px solid #f3f3f3;
+				color: $brand-accent;
+			}
+			&:hover a, &:hover p{
+				color: $brand-accent;	
+			}
+		}
+		& .box:nth-child(even) {
+			padding: 1rem;
+			border: 1px solid #f3f3f3;
+			border-radius: 2px;
+			background: #f3f3f3;
+			width: 100%;
+			transition: all .4s ease-in-out;
+			& a,
+			p {
+				font-family:'Fugaz One',sans-serif,serif;
 				text-decoration: none;
 				text-transform: uppercase;
 				color: $brand-accent;
+				transition: all .4s ease-in-out;
+			}
+			&:hover{
+				cursor: pointer;
+				background: $brand-accent;
+				border: 1px solid $brand-accent;
+			}
+			&:hover a,&:hover p{
+				color: #f3f3f3;
 			}
 		}
 	}
