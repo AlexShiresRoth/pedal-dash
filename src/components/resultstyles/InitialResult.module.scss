@@ -164,51 +164,79 @@
 		flex-direction: row;
 		justify-content: space-between;
 		& .box:nth-child(odd) {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			align-items: flex-start;
+			position: relative;
 			padding: 1rem;
-			border: 1px solid $brand-accent;
-			background: $brand-accent;
+			background: #f3f3f3;
 			border-radius: 2px;
 			width: 100%;
-			transition: all .4s ease-in-out;
+			transition: all 0.4s ease-in-out;
+			z-index: 0;
+			& .poly {
+				position: absolute;
+				max-height: 2rem;
+				max-width: 50%;
+				bottom: 0;
+				left: 0;
+				z-index: -1;
+				fill: darken(rgba(217, 216, 114, 0.6), 5%);
+				stroke: darken(rgba(217, 216, 114, 0.8), 7%);
+			}
 			& a,
 			p {
-				color: #f3f3f3;
-				font-family: 'Fugaz One', sans-serif,serif;
+				display: inline-block;
+				color: rgba(0, 153, 117, 0.6);
+				font-family: 'Fugaz One', sans-serif, serif;
 				text-decoration: none;
 				text-transform: uppercase;
-				transition: all .4s ease-in-out;
+				transition: all 0.4s ease-in-out;
+				z-index: 2;
 			}
-			&:hover{
+			&:hover {
 				cursor: pointer;
 				background: #f3f3f3;
-				border: 1px solid #f3f3f3;
 				color: $brand-accent;
 			}
-			&:hover a, &:hover p{
-				color: $brand-accent;	
+			&:hover a,
+			&:hover p {
+				color: $brand-accent;
 			}
 		}
 		& .box:nth-child(even) {
-			padding: 1rem;
-			border: 1px solid #f3f3f3;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
 			border-radius: 2px;
-			background: #f3f3f3;
+			background: rgba(0, 153, 117, 0.6);
 			width: 100%;
-			transition: all .4s ease-in-out;
+			transition: all 0.4s ease-in-out;
+			position: relative;
+			z-index: 0;
 			& a,
 			p {
-				font-family:'Fugaz One',sans-serif,serif;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				padding: 0 1rem;
+				width: 100%;
+				border-bottom: 10px solid $brand-accent;
+				border-left: 10px solid $brand-accent;
+				height: 100%;
+				font-family: 'Fugaz One', sans-serif, serif;
 				text-decoration: none;
 				text-transform: uppercase;
-				color: $brand-accent;
-				transition: all .4s ease-in-out;
+				color: #f3f3f3;
+				transition: all 0.4s ease-in-out;
 			}
-			&:hover{
+			&:hover {
 				cursor: pointer;
 				background: $brand-accent;
-				border: 1px solid $brand-accent;
 			}
-			&:hover a,&:hover p{
+			&:hover a,
+			&:hover p {
 				color: #f3f3f3;
 			}
 		}
