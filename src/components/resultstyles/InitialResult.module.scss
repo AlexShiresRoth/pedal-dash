@@ -391,7 +391,8 @@
 		}
 		& .column:nth-child(4) {
 			order: 3;
-			padding: 1rem;
+			padding: 1rem 0rem;
+			width: 100%;
 			display: grid;
 			grid-template-columns: 1fr;
 			grid-template-rows: auto;
