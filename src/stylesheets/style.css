@@ -4,7 +4,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  scrollbar-width: none; }
 
 body {
   background: #eee;

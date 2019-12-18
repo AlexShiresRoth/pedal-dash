@@ -292,6 +292,7 @@
 .pedal__container .links__row .box:nth-child(even) .poly {
   position: absolute;
   max-height: 3rem;
+  min-width: 100%;
   max-width: 100%;
   bottom: 0;
   left: 0;
