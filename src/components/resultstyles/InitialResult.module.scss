@@ -1,320 +1,387 @@
-@import '../../../sass/variables';
+@import "../../../sass/variables";
 .pedal__container {
-	display: grid;
-	grid-template-columns: repeat(4, auto);
-	grid-template-rows: repeat(2, auto);
-	justify-items: center;
-	align-content: center;
-	background: transparent;
-	border-radius: 2px;
-	width: 100%;
-	padding-top: 2rem;
-	gap: 2rem;
-	background: rgba(238, 238, 238, 1);
-	box-shadow: 0 4px 4px darken(#eee, 20%);
-	position: relative;
-	overflow-y: hidden;
-	& span {
-		border-bottom: 5px solid $brand-secondary;
-	}
-	& .wave {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		z-index: 0;
-	}
-	& .back__button {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		font-size: 3rem;
-		color: $brand-text;
-		& svg {
-			font-size: 4rem;
-			padding: 1rem;
-			background: #f3f3f3;
-			border-radius: 50%;
-			z-index: 2;
-			fill: transparent;
-			stroke: $brand-text;
-			transition: all 0.2s ease-in-out;
-			& path {
-				fill: transparent;
-				stroke-dasharray: 100;
-				stroke-dashoffset: 0;
-				stroke-width: 2px;
-				transition: all 0.2s ease-in-out;
-			}
-			&:hover {
-				cursor: pointer;
-				box-shadow: 0 2px 2px darken(#eee, 10%);
-				animation: animshadow 2s linear alternate infinite;
-			}
-			&:hover > path {
-				stroke: $brand-accent;
-				animation: fillchev 1s linear alternate infinite;
-			}
-		}
-	}
-	& .next__button {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(2, auto);
+  justify-items: center;
+  align-content: center;
+  background: transparent;
+  border-radius: 2px;
+  width: 100%;
+  padding-top: 2rem;
+  gap: 2rem;
+  background: rgba(238, 238, 238, 1);
+  box-shadow: 0 4px 4px darken(#eee, 20%);
+  position: relative;
+  overflow-y: hidden;
+  & span {
+    border-bottom: 5px solid $brand-secondary;
+  }
+  & .wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+  }
+  & .back__button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: $brand-text;
+    & svg {
+      font-size: 4rem;
+      padding: 1rem;
+      background: #f3f3f3;
+      border-radius: 50%;
+      z-index: 2;
+      fill: transparent;
+      stroke: $brand-text;
+      transition: all 0.2s ease-in-out;
+      & path {
+        fill: transparent;
+        stroke-dasharray: 100;
+        stroke-dashoffset: 0;
+        stroke-width: 2px;
+        transition: all 0.2s ease-in-out;
+      }
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0 2px 2px darken(#eee, 10%);
+        animation: animshadow 2s linear alternate infinite;
+      }
+      &:hover > path {
+        stroke: $brand-accent;
+        animation: fillchev 1s linear alternate infinite;
+      }
+    }
+  }
+  & .next__button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-		& svg {
-			font-size: 4rem;
-			padding: 1rem;
-			background: #f3f3f3;
-			border-radius: 50%;
-			z-index: 2;
-			fill: transparent;
-			stroke: $brand-text;
-			transition: all 0.2s ease-in-out;
-			& path {
-				fill: transparent;
-				stroke-dasharray: 100;
-				stroke-dashoffset: 0;
-				stroke-width: 2px;
-				transition: all 0.2s ease-in-out;
-			}
-			&:hover {
-				cursor: pointer;
-				box-shadow: 0 2px 2px darken(#eee, 10%);
-				animation: animshadow 2s linear alternate infinite;
-			}
-			&:hover > path {
-				stroke: $brand-accent;
-				animation: fillchev 1s linear alternate infinite;
-			}
-		}
-	}
-	& .column:nth-child(3) {
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-end;
-		align-items: center;
-		z-index: 1;
-		transform: translateX(-100vw);
-		visibility: hidden;
-		opacity: 0;
-		animation: slidein 1.1s linear forwards;
-		& .image__container {
-			padding: 1rem;
-			background: #eee;
-			box-shadow: 0 3px 3px darken(#eee, 20%);
-			border-radius: 2px;
-			& img {
-				max-height: 25rem;
-				max-width: 20rem;
-				border-radius: 2px;
-			}
-		}
-	}
-	& .column:nth-child(4) {
-		padding: 1rem;
-		display: grid;
-		grid-template-columns: repeat(3, 15rem);
-		grid-template-rows: auto;
-		gap: 1rem;
-		z-index: 1;
-		transform: translateX(100vw);
-		visibility: hidden;
-		opacity: 0;
-		animation: slidein 0.9s linear forwards;
-		& .container {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-around;
-			align-items: flex-start;
-			flex-wrap: wrap;
-			border-radius: 2px;
-			padding: 1rem;
-			background: #f3f3f3;
-			box-shadow: 0 2px 2px darken(#eee, 10%);
+    & svg {
+      font-size: 4rem;
+      padding: 1rem;
+      background: #f3f3f3;
+      border-radius: 50%;
+      z-index: 2;
+      fill: transparent;
+      stroke: $brand-text;
+      transition: all 0.2s ease-in-out;
+      & path {
+        fill: transparent;
+        stroke-dasharray: 100;
+        stroke-dashoffset: 0;
+        stroke-width: 2px;
+        transition: all 0.2s ease-in-out;
+      }
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0 2px 2px darken(#eee, 10%);
+        animation: animshadow 2s linear alternate infinite;
+      }
+      &:hover > path {
+        stroke: $brand-accent;
+        animation: fillchev 1s linear alternate infinite;
+      }
+    }
+  }
+  & .column:nth-child(3) {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1;
+    transform: translateX(-100vw);
+    visibility: hidden;
+    opacity: 0;
+    animation: slidein 1.1s linear forwards;
+    & .image__container {
+      padding: 1rem;
+      background: #eee;
+      box-shadow: 0 3px 3px darken(#eee, 20%);
+      border-radius: 2px;
+      & img {
+        max-height: 25rem;
+        max-width: 20rem;
+        border-radius: 2px;
+      }
+    }
+  }
+  & .column:nth-child(4) {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 15rem);
+    grid-template-rows: auto;
+    gap: 1rem;
+    z-index: 1;
+    transform: translateX(100vw);
+    visibility: hidden;
+    opacity: 0;
+    animation: slidein 0.9s linear forwards;
+    & .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      border-radius: 2px;
+      padding: 1rem;
+      background: #f3f3f3;
+      box-shadow: 0 2px 2px darken(#eee, 10%);
 
-			& span {
-				font-size: 1.2rem;
-				color: $brand-text;
-				font-family: 'Fugaz One', sans-serif, serif;
-			}
+      & span {
+        font-size: 1.2rem;
+        color: $brand-text;
+        font-family: "Fugaz One", sans-serif, serif;
+      }
 
-			& .pedal__knob {
-				max-width: 2rem;
-				max-height: 2rem;
-				transition: all 0.6s ease;
-				overflow: visible;
-				&:hover {
-					cursor: pointer;
-					transform-origin: 50% 50%;
-					animation: animline 1s linear forwards;
-				}
-				& .line {
-					transform-origin: 50% 50%;
-					animation: animline 1s linear forwards;
-					animation-delay: 1s;
-					transition: all 0.4s ease;
-				}
-			}
-		}
-	}
-	& .links__row {
-		width: 100%;
-		grid-column-start: 1;
-		grid-column-end: 5;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		& .box:nth-child(even) {
-			display: flex;
-			flex-direction: column;
-			justify-content: flex-end;
-			align-items: flex-start;
-			position: relative;
-			padding: 1rem;
-			flex: 1;
-			background: rgba(217, 216, 114, 0.3);
-			border-radius: 2px;
-			transition: all 0.4s ease-in-out;
-			z-index: 0;
-			& .poly {
-				position: absolute;
-				max-height: 3rem;
-				max-width: 100%;
-				bottom: 0;
-				left: 0;
-				z-index: -1;
-				fill: rgba(217, 216, 114, 0.8);
-				stroke: darken(rgba(217, 216, 114, 0.8), 5%);
-				stroke-width: 5px;
-				transition: all 0.4s ease-in;
-			}
-			& a,
-			p {
-				display: inline-block;
-				color: $brand-accent;
-				font-family: 'Fugaz One', sans-serif, serif;
-				text-decoration: none;
-				text-transform: uppercase;
-				transition: all 0.4s ease-in-out;
-				z-index: 2;
-				&::after {
-					content: '';
-					display: flex;
-					width: 0px;
-					height: 5px;
-					max-height: 5px;
-					background: transparent;
-					transition: all 0.4s ease-in-out;
-					z-index: 2;
-				}
-			}
-			&:hover {
-				cursor: pointer;
-				background: rgba(217, 216, 114, 0.6);
-			}
-			&:hover a,
-			&:hover p {
-				color: #f3f3f3;
-			}
-			&:hover p::after {
-				width: 100%;
-				max-height: 5px;
-				background: $brand-accent;
-			}
-			&:hover .poly {
-				fill: rgba(217, 216, 114, 1);
-				stroke: darken(rgba(217, 216, 114, 1), 5%);
-			}
-		}
-		& .box:nth-child(odd) {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			border-radius: 2px;
-			background: rgba(0, 153, 117, 0.6);
-			transition: all 0.4s ease-in-out;
-			position: relative;
-			flex: 1;
-			z-index: 0;
-			& a,
-			p {
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				padding: 0 0 0 1rem;
-				border-top: 10px solid lighten(rgba(0, 153, 117, 0.6), 0.1%);
-				border-right: 10px solid lighten(rgba(0, 153, 117, 0.6), 0.1%);
-				border-bottom: 10px solid $brand-accent;
-				border-left: 10px solid $brand-accent;
-				height: 100%;
-				font-family: 'Fugaz One', sans-serif, serif;
-				text-decoration: none;
-				text-transform: uppercase;
-				color: #f3f3f3;
-				transition: all 0.5s ease-in-out;
-			}
-			&:hover {
-				cursor: pointer;
-			}
-			&:hover a,
-			&:hover p {
-				border-bottom: 10px solid lighten(rgba(0, 153, 117, 0.6), 0.1%);
-				border-left: 10px solid lighten(rgba(0, 153, 117, 0.6), 0.1%);
-				border-top: 10px solid $brand-accent;
-				border-right: 10px solid $brand-accent;
-			}
-		}
-	}
+      & .pedal__knob {
+        max-width: 2rem;
+        max-height: 2rem;
+        transition: all 0.6s ease;
+        overflow: visible;
+        &:hover {
+          cursor: pointer;
+          transform-origin: 50% 50%;
+          animation: animline 1s linear forwards;
+        }
+        & .line {
+          transform-origin: 50% 50%;
+          animation: animline 1s linear forwards;
+          animation-delay: 1s;
+          transition: all 0.4s ease;
+        }
+      }
+    }
+  }
+  & .links__row {
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    & .box:nth-child(even) {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      position: relative;
+      padding: 1rem;
+      flex: 1;
+      background: rgba(217, 216, 114, 0.3);
+      border-radius: 2px;
+      transition: all 0.4s ease-in-out;
+      z-index: 0;
+      & .poly {
+        position: absolute;
+        max-height: 3rem;
+        max-width: 100%;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        fill: rgba(217, 216, 114, 0.8);
+        stroke: darken(rgba(217, 216, 114, 0.8), 5%);
+        stroke-width: 5px;
+        transition: all 0.4s ease-in;
+      }
+      & a,
+      p {
+        display: inline-block;
+        color: $brand-accent;
+        font-family: "Fugaz One", sans-serif, serif;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: all 0.4s ease-in-out;
+        z-index: 2;
+        &::after {
+          content: "";
+          display: flex;
+          width: 0px;
+          height: 5px;
+          max-height: 5px;
+          background: transparent;
+          transition: all 0.4s ease-in-out;
+          z-index: 2;
+        }
+      }
+      &:hover {
+        cursor: pointer;
+        background: rgba(217, 216, 114, 0.6);
+      }
+      &:hover a,
+      &:hover p {
+        color: #f3f3f3;
+      }
+      &:hover p::after {
+        width: 100%;
+        max-height: 5px;
+        background: $brand-accent;
+      }
+      &:hover .poly {
+        fill: rgba(217, 216, 114, 1);
+        stroke: darken(rgba(217, 216, 114, 1), 5%);
+      }
+    }
+    & .box:nth-child(odd) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 2px;
+      background: rgba(0, 153, 117, 0.6);
+      transition: all 0.4s ease-in-out;
+      position: relative;
+      flex: 1;
+      z-index: 0;
+      & a,
+      p {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 0 0 1rem;
+        border-top: 10px solid lighten(rgba(0, 153, 117, 0.6), 0.1%);
+        border-right: 10px solid lighten(rgba(0, 153, 117, 0.6), 0.1%);
+        border-bottom: 10px solid $brand-accent;
+        border-left: 10px solid $brand-accent;
+        height: 100%;
+        font-family: "Fugaz One", sans-serif, serif;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #f3f3f3;
+        transition: all 0.5s ease-in-out;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+      &:hover a,
+      &:hover p {
+        border-bottom: 10px solid lighten(rgba(0, 153, 117, 0.6), 0.1%);
+        border-left: 10px solid lighten(rgba(0, 153, 117, 0.6), 0.1%);
+        border-top: 10px solid $brand-accent;
+        border-right: 10px solid $brand-accent;
+      }
+    }
+  }
 }
 
+@media screen and (max-width: 1400px) {
+  .pedal__container {
+    gap: .5rem;
+    & .column:nth-child(3) {
+      & .image__container {
+        padding: 0.5rem;
+        & img {
+          max-height: 20rem;
+          max-width: 15rem;
+        }
+      }
+    }
+    & .column:nth-child(4) {
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: repeat(3, 10rem);
+      grid-template-rows: auto;
+      gap: .5rem;
+      z-index: 1;
+      & .container {
+        border-radius: 2px;
+        padding: .5rem;
+
+        & span {
+          font-size: 1rem;
+          color: $brand-text;
+          font-family: "Fugaz One", sans-serif, serif;
+        }
+      }
+    }
+    & .back__button {
+      & svg {
+        font-size: 3rem;
+        padding: 0.5rem;
+        & path {
+          fill: transparent;
+          stroke-dasharray: 100;
+          stroke-dashoffset: 0;
+          stroke-width: 2px;
+        }
+      }
+    }
+    & .next__button {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      & svg {
+        font-size: 3rem;
+        padding: 0.5rem;
+        fill: transparent;
+        stroke: $brand-text;
+        & path {
+          fill: transparent;
+          stroke-dasharray: 100;
+          stroke-dashoffset: 0;
+          stroke-width: 2px;
+          transition: all 0.2s ease-in-out;
+        }
+      }
+	}
+	& .links__row{
+		margin-top:1rem;
+	}
+  }
+}
 @keyframes animline {
-	0% {
-		transform: rotate(-90deg);
-	}
-	90% {
-		transform: rotate(220deg);
-	}
-	100% {
-		transform: rotate(210deg);
-	}
+  0% {
+    transform: rotate(-90deg);
+  }
+  90% {
+    transform: rotate(220deg);
+  }
+  100% {
+    transform: rotate(210deg);
+  }
 }
 @keyframes animshadow {
-	0% {
-		box-shadow: 0 1px 1px darken(#eee, 20%);
-	}
-	80% {
-		box-shadow: 0 5px 5px darken(#eee, 20%);
-	}
-	100% {
-		box-shadow: 0 2px 2px darken(#eee, 20%);
-	}
+  0% {
+    box-shadow: 0 1px 1px darken(#eee, 20%);
+  }
+  80% {
+    box-shadow: 0 5px 5px darken(#eee, 20%);
+  }
+  100% {
+    box-shadow: 0 2px 2px darken(#eee, 20%);
+  }
 }
 
 @keyframes fillchev {
-	0% {
-		stroke-dashoffset: 100;
-	}
-	100% {
-		stroke-dashoffset: 0;
-	}
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 @keyframes animatepolygon {
-	0% {
-		stroke-dasharray: 100;
-		stroke-dashoffset: 100;
-	}
-	100% {
-		stroke-dashoffset: 0;
-		stroke-dasharray: 0;
-	}
+  0% {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 0;
+  }
 }
 @keyframes slidein {
-	100% {
-		visibility: visible;
-		opacity: 1;
-		transform: translate(0);
-	}
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0);
+  }
 }

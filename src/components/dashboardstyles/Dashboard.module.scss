@@ -31,15 +31,17 @@
 	max-width: 100%;
 	background: rgba(0, 153, 117, 0.6);
 	box-shadow: inset 0px 0px 2px rgba(0, 153, 117, 1);
-	border: 5px solid $brand-secondary;
 	transition: all 0.4s ease-in-out;
 	&::-webkit-scrollbar {
 		width: 0px; /* Remove scrollbar space */
 		background: transparent;
 		height: 0; /* Optional: just make scrollbar invisible */
 	}
-	&:hover {
-		border: 5px solid $brand-accent;
+	&:hover .scroll__right, &:hover .scroll__left{
+		background: #f3f3f3;
+	}
+	&:hover .scroll__right svg, &:hover .scroll__left svg {
+		color: $brand-secondary;
 	}
 }
 
@@ -53,14 +55,15 @@
 		background: transparent;
 		height: 0; /* Optional: just make scrollbar invisible */
 	}
+
 }
 
 .scroll__right {
 	position: absolute;
 	height: 100%;
 	right: 0;
-	background: #f3f3f3;
-	border: 1px solid #f3f3f3;
+	background: transparent;
+	border: 1px solid transparent;
 	transition: all 0.5s ease-in-out;
 	z-index: 4;
 	&:hover {
@@ -73,7 +76,7 @@
 	}
 	& svg {
 		transition: all 0.3s ease-in-out;
-		color: $brand-accent;
+		color: transparent;
 		font-size: 1.2rem;
 	}
 }
@@ -81,8 +84,8 @@
 	position: absolute;
 	height: 100%;
 	left: 0;
-	background: #f3f3f3;
-	border: 1px solid #f3f3f3;
+	background: transparent;
+	border: 1px solid transparent;
 	transition: all 0.5s ease-in-out;
 	z-index: 4;
 	&:hover {
@@ -95,7 +98,7 @@
 	}
 	& svg {
 		transition: all 0.3s ease-in-out;
-		color: $brand-accent;
+		color: transparent;
 		font-size: 1.2rem;
 	}
 }
@@ -104,6 +107,12 @@
 	display: flex;
 	z-index: 2;
 	overflow-y: hidden;
+	&:hover .scroll__left, &:hover .scroll__right{
+		background: #f3f3f3;
+	}
+	&:hover .scroll__right svg, &:hover .scroll__left svg {
+		color: $brand-secondary;
+	}
 }
 .pedal__view {
 	display: flex;
