@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { getPedals, clearData } from '../actions/search';
 import searchStyles from './searchstyles/Search.module.scss';
 
-const Search = ({ getPedals, loading, brands, clearData }) => {
+const Search = ({ getPedals, clearData }) => {
 	const [formData, setFormData] = useState({
 		query: '',
 	});
