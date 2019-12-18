@@ -8,12 +8,15 @@
 	background: transparent;
 	border-radius: 2px;
 	width: 100%;
+	padding-top: 2rem;
 	gap: 2rem;
 	background: rgba(238, 238, 238, 1);
 	box-shadow: 0 4px 4px darken(#eee, 20%);
 	position: relative;
-	min-height: 30rem;
 	overflow-y: hidden;
+	& span {
+		border-bottom: 5px solid $brand-secondary;
+	}
 	& .wave {
 		position: absolute;
 		top: 0;
@@ -104,6 +107,7 @@
 			box-shadow: 0 3px 3px darken(#eee, 20%);
 			border-radius: 2px;
 			& img {
+				max-height: 25rem;
 				max-width: 20rem;
 				border-radius: 2px;
 			}
@@ -123,7 +127,7 @@
 		& .container {
 			display: flex;
 			flex-direction: column;
-			justify-content: center;
+			justify-content: space-around;
 			align-items: flex-start;
 			flex-wrap: wrap;
 			border-radius: 2px;
@@ -163,65 +167,86 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		& .box:nth-child(odd) {
+		& .box:nth-child(even) {
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-end;
 			align-items: flex-start;
 			position: relative;
 			padding: 1rem;
-			background: #f3f3f3;
+			flex: 1;
+			background: rgba(217, 216, 114, 0.3);
 			border-radius: 2px;
-			width: 100%;
 			transition: all 0.4s ease-in-out;
 			z-index: 0;
 			& .poly {
 				position: absolute;
-				max-height: 2rem;
-				max-width: 50%;
+				max-height: 3rem;
+				max-width: 100%;
 				bottom: 0;
 				left: 0;
 				z-index: -1;
-				fill: darken(rgba(217, 216, 114, 0.6), 5%);
-				stroke: darken(rgba(217, 216, 114, 0.8), 7%);
+				fill: rgba(217, 216, 114, 0.8);
+				stroke: darken(rgba(217, 216, 114, 0.8), 5%);
+				stroke-width: 5px;
+				transition: all 0.4s ease-in;
 			}
 			& a,
 			p {
 				display: inline-block;
-				color: rgba(0, 153, 117, 0.6);
+				color: $brand-accent;
 				font-family: 'Fugaz One', sans-serif, serif;
 				text-decoration: none;
 				text-transform: uppercase;
 				transition: all 0.4s ease-in-out;
 				z-index: 2;
+				&::after {
+					content: '';
+					display: flex;
+					width: 0px;
+					height: 5px;
+					max-height: 5px;
+					background: transparent;
+					transition: all 0.4s ease-in-out;
+					z-index: 2;
+				}
 			}
 			&:hover {
 				cursor: pointer;
-				background: #f3f3f3;
-				color: $brand-accent;
+				background: rgba(217, 216, 114, 0.6);
 			}
 			&:hover a,
 			&:hover p {
-				color: $brand-accent;
+				color: #f3f3f3;
+			}
+			&:hover p::after {
+				width: 100%;
+				max-height: 5px;
+				background: $brand-accent;
+			}
+			&:hover .poly {
+				fill: rgba(217, 216, 114, 1);
+				stroke: darken(rgba(217, 216, 114, 1), 5%);
 			}
 		}
-		& .box:nth-child(even) {
+		& .box:nth-child(odd) {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			border-radius: 2px;
 			background: rgba(0, 153, 117, 0.6);
-			width: 100%;
 			transition: all 0.4s ease-in-out;
 			position: relative;
+			flex: 1;
 			z-index: 0;
 			& a,
 			p {
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
-				padding: 0 1rem;
-				width: 100%;
+				padding: 0 0 0 1rem;
+				border-top: 10px solid lighten(rgba(0, 153, 117, 0.6), 0.1%);
+				border-right: 10px solid lighten(rgba(0, 153, 117, 0.6), 0.1%);
 				border-bottom: 10px solid $brand-accent;
 				border-left: 10px solid $brand-accent;
 				height: 100%;
@@ -229,15 +254,17 @@
 				text-decoration: none;
 				text-transform: uppercase;
 				color: #f3f3f3;
-				transition: all 0.4s ease-in-out;
+				transition: all 0.5s ease-in-out;
 			}
 			&:hover {
 				cursor: pointer;
-				background: $brand-accent;
 			}
 			&:hover a,
 			&:hover p {
-				color: #f3f3f3;
+				border-bottom: 10px solid lighten(rgba(0, 153, 117, 0.6), 0.1%);
+				border-left: 10px solid lighten(rgba(0, 153, 117, 0.6), 0.1%);
+				border-top: 10px solid $brand-accent;
+				border-right: 10px solid $brand-accent;
 			}
 		}
 	}
@@ -272,6 +299,16 @@
 	}
 	100% {
 		stroke-dashoffset: 0;
+	}
+}
+@keyframes animatepolygon {
+	0% {
+		stroke-dasharray: 100;
+		stroke-dashoffset: 100;
+	}
+	100% {
+		stroke-dashoffset: 0;
+		stroke-dasharray: 0;
 	}
 }
 @keyframes slidein {

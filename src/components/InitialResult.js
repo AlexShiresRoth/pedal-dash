@@ -26,8 +26,8 @@ const InitialResult = ({ loading, pedalRes, pedalIndex, setIndex }) => {
 	const pedalKnob = (
 		<svg className={resStyles.pedal__knob} viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 			<g>
-				<circle cx="50" cy="50" r="50" fill="transparent" stroke="#009975" strokeWidth="7px" />
-				<line className={resStyles.line} x1="-15" y1="50" x2="50" y2="50" stroke="#009975" strokeWidth="7px" />
+				<circle cx="50" cy="50" r="50" fill="transparent" stroke="#009975" strokeWidth="10px" />
+				<line className={resStyles.line} x1="-15" y1="50" x2="50" y2="50" stroke="#009975" strokeWidth="10px" />
 			</g>
 		</svg>
 	);
@@ -39,15 +39,25 @@ const InitialResult = ({ loading, pedalRes, pedalIndex, setIndex }) => {
 			xmlns="http://www.w3.org/2000/svg"
 			preserveAspectRatio="none"
 		>
-			<polygon points="0, 100 00, 00 150, 100" />
+			<polygon className={resStyles.poly1} points="0, 100 00, 00 150, 100" />
 		</svg>
 	);
 
 	//take the descriptions and remove any html
 	const removeHtmlTags = content => {
-		//need to convert &amp; to their corresponding tags: "&"
-		return content.replace(/<strong>|<\/strong>|<ul>|<\/ul>|<b>|<\/b>|<p>|<\/p>|<br>|<\/br>/g, '');
+		if (content.includes('&amp;')) content.replace(/&amp;/g, '&');
+
+		return content.replace(
+			/<li>|<\/li>|<strong>|<\/strong>|<ul>|<\/ul>|<b>|<\/b>|<p>|<\/p>|<br>|<\/br>|<span>|<\/span>|<i>|<div>|<\/div>/g,
+			''
+		);
 	};
+
+	//remove "Effects and Pedals from string"
+	const separateType = type => {
+		return type.split('/')[1];
+	};
+
 	return pedalRes.listings && !loading ? (
 		<div className={resStyles.pedal__container}>
 			{svgWave}
@@ -86,15 +96,15 @@ const InitialResult = ({ loading, pedalRes, pedalIndex, setIndex }) => {
 					{pedalKnob}
 					<span>Description:</span>
 					<p>
-						{removeHtmlTags(pedalRes.listings[pedalIndex].description).length > 200
-							? removeHtmlTags(pedalRes.listings[pedalIndex].description).substr(0, 200) + '...'
+						{removeHtmlTags(pedalRes.listings[pedalIndex].description).length > 50
+							? removeHtmlTags(pedalRes.listings[pedalIndex].description).substr(0, 50) + '...'
 							: removeHtmlTags(pedalRes.listings[pedalIndex].description)}
 					</p>
 				</div>
 				<div className={resStyles.container}>
 					{pedalKnob}
 					<span>Type:</span>
-					<p>{pedalRes.listings[pedalIndex].categories[0].full_name}</p>
+					<p>{separateType(pedalRes.listings[pedalIndex].categories[0].full_name)}</p>
 				</div>
 				<div className={resStyles.container}>
 					{pedalKnob}
@@ -113,19 +123,19 @@ const InitialResult = ({ loading, pedalRes, pedalIndex, setIndex }) => {
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						Wanna buy this?
+						Wanna buy this bad boy?
 					</a>
+				</div>
+				<div className={resStyles.box}>
+					<p>Price: {pedalRes.listings[pedalIndex].price.display}</p>
 					{svgPolygon}
 				</div>
 				<div className={resStyles.box}>
-					<p>{pedalRes.listings[pedalIndex].price.display}</p>
+					<p>Shop: {pedalRes.listings[pedalIndex].shop_name}</p>
 				</div>
 				<div className={resStyles.box}>
-					<p>{pedalRes.listings[pedalIndex].shop_name}</p>
+					<p>In Stock Amount: {pedalRes.listings[pedalIndex].inventory}</p>
 					{svgPolygon}
-				</div>
-				<div className={resStyles.box}>
-					<p>In Stock Amount:{pedalRes.listings[pedalIndex].inventory}</p>
 				</div>
 			</div>
 		</div>

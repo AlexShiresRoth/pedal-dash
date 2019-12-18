@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import PedalItems from './listings/PedalItems';
 import listingStyles from './listingstyles/Listings.module.scss';
 import { getPedal } from '../actions/search';
-const Listings = ({ pedalRes, loading, brands, getPedal }) => {
+const Listings = ({ pedalRes, loading, pedalsRef }) => {
 	return pedalRes.listings && !loading ? (
 		pedalRes.listings.length > 0 ? (
-			<div className={listingStyles.listings__container}>
+			<div ref={pedalsRef} className={listingStyles.listings__container}>
 				<PedalItems listings={pedalRes.listings} />
 			</div>
 		) : (

@@ -15,6 +15,8 @@ const Dashboard = ({ getPedal }) => {
 		scrollX: 0,
 	});
 
+	const brandsRef = useRef();
+	const pedalsRef = useRef();
 	let animationRef = useRef();
 
 	useEffect(() => {
@@ -22,17 +24,12 @@ const Dashboard = ({ getPedal }) => {
 		return () => cancelAnimationFrame(animationRef.current);
 	}, []);
 
-	const brandsRef = useRef();
-
 	const onScrollRight = e => {
 		setScroll({
 			...scrolling,
 			isScrolling: true,
 		});
-		brandsRef.current.scrollLeft =
-			brandsRef.current.scrollLeft > brandsRef.current.getBoundingClientRect().left
-				? (brandsRef.current.scrollLeft += 10)
-				: brandsRef.current.getBoundingClientRect().left + 10;
+		brandsRef.current.scrollLeft = brandsRef.current.scrollLeft += 10;
 		animationRef.current = requestAnimationFrame(onScrollRight);
 	};
 
@@ -41,14 +38,30 @@ const Dashboard = ({ getPedal }) => {
 			...scrolling,
 			isScrolling: true,
 		});
-		brandsRef.current.scrollLeft =
-			brandsRef.current.scrollLeft > brandsRef.current.getBoundingClientRect().left
-				? (brandsRef.current.scrollLeft -= 10)
-				: brandsRef.current.getBoundingClientRect().right - 10;
+
+		brandsRef.current.scrollLeft = brandsRef.current.scrollLeft -= 10;
 
 		animationRef.current = requestAnimationFrame(onScrollLeft);
 	};
 
+	const onScrollListRight = e => {
+		setScroll({
+			...scrolling,
+			isScrolling: true,
+		});
+		pedalsRef.current.scrollLeft = pedalsRef.current.scrollLeft += 10;
+		animationRef.current = requestAnimationFrame(onScrollListRight);
+	};
+
+	const onScrollListLeft = e => {
+		setScroll({
+			...scrolling,
+			isScrolling: true,
+		});
+
+		pedalsRef.current.scrollLeft = pedalsRef.current.scrollLeft -= 10;
+		animationRef.current = requestAnimationFrame(onScrollListLeft);
+	};
 	const onDrop = e => {
 		setScroll({
 			...scrolling,
@@ -67,9 +80,9 @@ const Dashboard = ({ getPedal }) => {
 			<div className={dashboardStyles.brands__list}>
 				<button
 					className={dashboardStyles.scroll__left}
-					onMouseDown={e => onScrollLeft(e)}
+					onMouseDown={() => onScrollLeft(brandsRef)}
 					onMouseUp={e => onDrop(e)}
-					onTouchStart={e => onScrollLeft(e)}
+					onTouchStart={() => onScrollLeft(brandsRef)}
 					onTouchEnd={e => onDrop(e)}
 				>
 					<MdChevronLeft />
@@ -88,7 +101,25 @@ const Dashboard = ({ getPedal }) => {
 				</button>
 			</div>
 			<div className={dashboardStyles.listings__results}>
-				<Listings />
+				<button
+					className={dashboardStyles.scroll__left}
+					onMouseDown={e => onScrollListLeft(e)}
+					onMouseUp={e => onDrop(e)}
+					onTouchStart={e => onScrollListLeft(e)}
+					onTouchEnd={e => onDrop(e)}
+				>
+					<MdChevronLeft />
+				</button>
+				<Listings pedalsRef={pedalsRef} />
+				<button
+					className={dashboardStyles.scroll__right}
+					onMouseDown={e => onScrollListRight(e)}
+					onTouchStart={e => onScrollListRight(e)}
+					onTouchEnd={e => onDrop(e)}
+					onMouseUp={e => onDrop(e)}
+				>
+					<MdChevronRight />
+				</button>
 			</div>
 			<div className={dashboardStyles.pedal__view}>
 				<InitialResult />
