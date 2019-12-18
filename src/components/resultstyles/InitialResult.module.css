@@ -1,0 +1,840 @@
+.pedal__container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[4];
+      grid-template-columns: repeat(4, auto);
+  -ms-grid-rows: (auto)[2];
+      grid-template-rows: repeat(2, auto);
+  justify-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background: transparent;
+  border-radius: 2px;
+  width: 100%;
+  padding-top: 2rem;
+  gap: 2rem;
+  background: #eeeeee;
+  -webkit-box-shadow: 0 4px 4px #bbbbbb;
+          box-shadow: 0 4px 4px #bbbbbb;
+  position: relative;
+  overflow-y: hidden;
+}
+
+.pedal__container span {
+  border-bottom: 5px solid #d9d872;
+}
+
+.pedal__container .wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.pedal__container .back__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 3rem;
+  color: #454d66;
+}
+
+.pedal__container .back__button svg {
+  font-size: 4rem;
+  padding: 1rem;
+  background: #f3f3f3;
+  border-radius: 50%;
+  z-index: 2;
+  fill: transparent;
+  stroke: #454d66;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.pedal__container .back__button svg path {
+  fill: transparent;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+  stroke-width: 2px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.pedal__container .back__button svg:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 2px 2px #d5d5d5;
+          box-shadow: 0 2px 2px #d5d5d5;
+  -webkit-animation: animshadow 2s linear alternate infinite;
+          animation: animshadow 2s linear alternate infinite;
+}
+
+.pedal__container .back__button svg:hover > path {
+  stroke: #009975;
+  -webkit-animation: fillchev 1s linear alternate infinite;
+          animation: fillchev 1s linear alternate infinite;
+}
+
+.pedal__container .next__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pedal__container .next__button svg {
+  font-size: 4rem;
+  padding: 1rem;
+  background: #f3f3f3;
+  border-radius: 50%;
+  z-index: 2;
+  fill: transparent;
+  stroke: #454d66;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.pedal__container .next__button svg path {
+  fill: transparent;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+  stroke-width: 2px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.pedal__container .next__button svg:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 2px 2px #d5d5d5;
+          box-shadow: 0 2px 2px #d5d5d5;
+  -webkit-animation: animshadow 2s linear alternate infinite;
+          animation: animshadow 2s linear alternate infinite;
+}
+
+.pedal__container .next__button svg:hover > path {
+  stroke: #009975;
+  -webkit-animation: fillchev 1s linear alternate infinite;
+          animation: fillchev 1s linear alternate infinite;
+}
+
+.pedal__container .column:nth-child(3) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+  -webkit-transform: translateX(-100vw);
+          transform: translateX(-100vw);
+  visibility: hidden;
+  opacity: 0;
+  -webkit-animation: slidein 1.1s linear forwards;
+          animation: slidein 1.1s linear forwards;
+}
+
+.pedal__container .column:nth-child(3) .image__container {
+  padding: 1rem;
+  background: #eee;
+  -webkit-box-shadow: 0 3px 3px #bbbbbb;
+          box-shadow: 0 3px 3px #bbbbbb;
+  border-radius: 2px;
+}
+
+.pedal__container .column:nth-child(3) .image__container img {
+  max-height: 25rem;
+  max-width: 20rem;
+  border-radius: 2px;
+}
+
+.pedal__container .column:nth-child(4) {
+  padding: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (15rem)[3];
+      grid-template-columns: repeat(3, 15rem);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  gap: 1rem;
+  z-index: 1;
+  -webkit-transform: translateX(100vw);
+          transform: translateX(100vw);
+  visibility: hidden;
+  opacity: 0;
+  -webkit-animation: slidein 0.9s linear forwards;
+          animation: slidein 0.9s linear forwards;
+}
+
+.pedal__container .column:nth-child(4) .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-radius: 2px;
+  padding: 1rem;
+  background: #f3f3f3;
+  -webkit-box-shadow: 0 2px 2px #d5d5d5;
+          box-shadow: 0 2px 2px #d5d5d5;
+}
+
+.pedal__container .column:nth-child(4) .container span {
+  font-size: 1.2rem;
+  color: #454d66;
+  font-family: 'Fugaz One', sans-serif, serif;
+}
+
+.pedal__container .column:nth-child(4) .container .pedal__knob {
+  max-width: 2rem;
+  max-height: 2rem;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+  overflow: visible;
+}
+
+.pedal__container .column:nth-child(4) .container .pedal__knob:hover {
+  cursor: pointer;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  -webkit-animation: animline 1s linear forwards;
+          animation: animline 1s linear forwards;
+}
+
+.pedal__container .column:nth-child(4) .container .pedal__knob .line {
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  -webkit-animation: animline 1s linear forwards;
+          animation: animline 1s linear forwards;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.pedal__container .links__row {
+  width: 100%;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.pedal__container .links__row .box:nth-child(even) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  position: relative;
+  padding: 1rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background: rgba(217, 216, 114, 0.3);
+  border-radius: 2px;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  z-index: 0;
+}
+
+.pedal__container .links__row .box:nth-child(even) .poly {
+  position: absolute;
+  max-height: 3rem;
+  max-width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  fill: rgba(217, 216, 114, 0.8);
+  stroke: rgba(212, 210, 94, 0.8);
+  stroke-width: 5px;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+}
+
+.pedal__container .links__row .box:nth-child(even) a,
+.pedal__container .links__row .box:nth-child(even) p {
+  display: inline-block;
+  color: #009975;
+  font-family: 'Fugaz One', sans-serif, serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  z-index: 2;
+}
+
+.pedal__container .links__row .box:nth-child(even) a::after,
+.pedal__container .links__row .box:nth-child(even) p::after {
+  content: '';
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 0px;
+  height: 5px;
+  max-height: 5px;
+  background: transparent;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  z-index: 2;
+}
+
+.pedal__container .links__row .box:nth-child(even):hover {
+  cursor: pointer;
+  background: rgba(217, 216, 114, 0.6);
+}
+
+.pedal__container .links__row .box:nth-child(even):hover a,
+.pedal__container .links__row .box:nth-child(even):hover p {
+  color: #f3f3f3;
+}
+
+.pedal__container .links__row .box:nth-child(even):hover p::after {
+  width: 100%;
+  max-height: 5px;
+  background: #009975;
+}
+
+.pedal__container .links__row .box:nth-child(even):hover .poly {
+  fill: #d9d872;
+  stroke: #d4d25e;
+}
+
+.pedal__container .links__row .box:nth-child(odd) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 2px;
+  background: rgba(0, 153, 117, 0.6);
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  z-index: 0;
+}
+
+.pedal__container .links__row .box:nth-child(odd) a,
+.pedal__container .links__row .box:nth-child(odd) p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 0 0 1rem;
+  border-top: 10px solid rgba(0, 154, 117, 0.6);
+  border-right: 10px solid rgba(0, 154, 117, 0.6);
+  border-bottom: 10px solid #009975;
+  border-left: 10px solid #009975;
+  height: 100%;
+  font-family: 'Fugaz One', sans-serif, serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #f3f3f3;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.pedal__container .links__row .box:nth-child(odd):hover {
+  cursor: pointer;
+}
+
+.pedal__container .links__row .box:nth-child(odd):hover a,
+.pedal__container .links__row .box:nth-child(odd):hover p {
+  border-bottom: 10px solid rgba(0, 154, 117, 0.6);
+  border-left: 10px solid rgba(0, 154, 117, 0.6);
+  border-top: 10px solid #009975;
+  border-right: 10px solid #009975;
+}
+
+@media screen and (max-width: 1400px) {
+  .pedal__container {
+    gap: 0.5rem;
+  }
+  .pedal__container .column:nth-child(3) .image__container {
+    padding: 0.5rem;
+  }
+  .pedal__container .column:nth-child(3) .image__container img {
+    max-height: 20rem;
+    max-width: 15rem;
+  }
+  .pedal__container .column:nth-child(4) {
+    padding: 1rem;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (10rem)[3];
+        grid-template-columns: repeat(3, 10rem);
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+    gap: 0.5rem;
+    z-index: 1;
+  }
+  .pedal__container .column:nth-child(4) .container {
+    border-radius: 2px;
+    padding: 0.5rem;
+  }
+  .pedal__container .column:nth-child(4) .container span {
+    font-size: 1rem;
+    color: #454d66;
+    font-family: 'Fugaz One', sans-serif, serif;
+  }
+  .pedal__container .back__button svg {
+    font-size: 3rem;
+    padding: 0.5rem;
+  }
+  .pedal__container .back__button svg path {
+    fill: transparent;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+    stroke-width: 2px;
+  }
+  .pedal__container .next__button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .pedal__container .next__button svg {
+    font-size: 3rem;
+    padding: 0.5rem;
+    fill: transparent;
+    stroke: #454d66;
+  }
+  .pedal__container .next__button svg path {
+    fill: transparent;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+    stroke-width: 2px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  .pedal__container .links__row {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .pedal__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    background: transparent;
+    border-radius: 2px;
+    width: 100%;
+    padding-top: 0rem;
+    background: #eeeeee;
+    -webkit-box-shadow: 0 4px 4px #bbbbbb;
+            box-shadow: 0 4px 4px #bbbbbb;
+    position: relative;
+    overflow-y: hidden;
+  }
+  .pedal__container .back__button {
+    position: absolute;
+    -webkit-box-flex: 0.5;
+        -ms-flex: 0.5;
+            flex: 0.5;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    top: 8rem;
+    padding: 0.5rem;
+  }
+  .pedal__container .next__button {
+    position: absolute;
+    -ms-grid-column-align: center;
+        justify-self: center;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    top: 8rem;
+    padding: 0.5rem;
+    right: 0;
+  }
+  .pedal__container .column:nth-child(3) {
+    -webkit-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+            order: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  .pedal__container .column:nth-child(3) .image__container {
+    padding: 0.5rem;
+    width: 100%;
+    background: #f3f3f3;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .pedal__container .column:nth-child(3) .image__container img {
+    max-height: 20rem;
+    max-width: 100%;
+    border-radius: 2px;
+  }
+  .pedal__container .column:nth-child(4) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    padding: 1rem;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+    gap: 0.5rem;
+    z-index: 1;
+    -webkit-transform: translateX(100vw);
+            transform: translateX(100vw);
+    visibility: hidden;
+    opacity: 0;
+    -webkit-animation: slidein 0.9s linear forwards;
+            animation: slidein 0.9s linear forwards;
+  }
+  .pedal__container .column:nth-child(4) .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    border-radius: 2px;
+    padding: 1rem;
+    background: #f3f3f3;
+    -webkit-box-shadow: 0 2px 2px #d5d5d5;
+            box-shadow: 0 2px 2px #d5d5d5;
+  }
+  .pedal__container .column:nth-child(4) .container span {
+    font-size: 1rem;
+    color: #454d66;
+    font-family: 'Fugaz One', sans-serif, serif;
+    margin: 0 0.5rem;
+  }
+  .pedal__container .column:nth-child(4) .container .pedal__knob {
+    min-width: 2rem;
+    max-width: 2rem;
+    max-height: 2rem;
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+    overflow: visible;
+    margin: 0 0.5rem;
+  }
+  .pedal__container .column:nth-child(4) .container .pedal__knob:hover {
+    cursor: pointer;
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    -webkit-animation: animline 1s linear forwards;
+            animation: animline 1s linear forwards;
+  }
+  .pedal__container .column:nth-child(4) .container .pedal__knob .line {
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    -webkit-animation: animline 1s linear forwards;
+            animation: animline 1s linear forwards;
+    -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+  }
+  .pedal__container .links__row {
+    -webkit-box-ordinal-group: 5;
+        -ms-flex-order: 4;
+            order: 4;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .pedal__container .links__row .box:nth-child(even) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    position: relative;
+    padding: 1rem;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .pedal__container .links__row .box:nth-child(odd) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+  }
+  .pedal__container .links__row .box:nth-child(odd) a,
+  .pedal__container .links__row .box:nth-child(odd) p {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 1rem;
+    border-top: 5px solid rgba(0, 154, 117, 0.6);
+    border-right: 5px solid rgba(0, 154, 117, 0.6);
+    border-bottom: 5px solid #009975;
+    border-left: 5px solid #009975;
+  }
+  .pedal__container .links__row .box:nth-child(odd):hover a,
+  .pedal__container .links__row .box:nth-child(odd):hover p {
+    border-bottom: 5px solid rgba(0, 154, 117, 0.6);
+    border-left: 5px solid rgba(0, 154, 117, 0.6);
+    border-top: 5px solid #009975;
+    border-right: 5px solid #009975;
+  }
+}
+
+@-webkit-keyframes animline {
+  0% {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  }
+  90% {
+    -webkit-transform: rotate(220deg);
+            transform: rotate(220deg);
+  }
+  100% {
+    -webkit-transform: rotate(210deg);
+            transform: rotate(210deg);
+  }
+}
+
+@keyframes animline {
+  0% {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  }
+  90% {
+    -webkit-transform: rotate(220deg);
+            transform: rotate(220deg);
+  }
+  100% {
+    -webkit-transform: rotate(210deg);
+            transform: rotate(210deg);
+  }
+}
+
+@-webkit-keyframes animshadow {
+  0% {
+    -webkit-box-shadow: 0 1px 1px #bbbbbb;
+            box-shadow: 0 1px 1px #bbbbbb;
+  }
+  80% {
+    -webkit-box-shadow: 0 5px 5px #bbbbbb;
+            box-shadow: 0 5px 5px #bbbbbb;
+  }
+  100% {
+    -webkit-box-shadow: 0 2px 2px #bbbbbb;
+            box-shadow: 0 2px 2px #bbbbbb;
+  }
+}
+
+@keyframes animshadow {
+  0% {
+    -webkit-box-shadow: 0 1px 1px #bbbbbb;
+            box-shadow: 0 1px 1px #bbbbbb;
+  }
+  80% {
+    -webkit-box-shadow: 0 5px 5px #bbbbbb;
+            box-shadow: 0 5px 5px #bbbbbb;
+  }
+  100% {
+    -webkit-box-shadow: 0 2px 2px #bbbbbb;
+            box-shadow: 0 2px 2px #bbbbbb;
+  }
+}
+
+@-webkit-keyframes fillchev {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillchev {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes animatepolygon {
+  0% {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 0;
+  }
+}
+
+@keyframes animatepolygon {
+  0% {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 0;
+  }
+}
+
+@-webkit-keyframes slidein {
+  100% {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+
+@keyframes slidein {
+  100% {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+/*# sourceMappingURL=InitialResult.module.css.map */

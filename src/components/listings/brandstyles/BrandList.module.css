@@ -1,0 +1,52 @@
+.brand {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 7rem;
+  margin: 0.2rem;
+  padding: 0.2rem;
+  -webkit-box-shadow: 0 1px 1px #009975;
+          box-shadow: 0 1px 1px #009975;
+  border-radius: 2px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  overflow-y: hidden;
+}
+
+.brand::after {
+  content: '';
+  width: 0px;
+  height: 2px;
+  background: transparent;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.brand:hover::after {
+  width: 100%;
+  background: #d9d872;
+}
+
+.brand p {
+  font-size: 0.9rem;
+  text-align: center;
+  color: #f3f3f3;
+  font-family: 'Fugaz One', sans-serif, serif;
+}
+
+.brand:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 5px 5px #009975;
+          box-shadow: 0 5px 5px #009975;
+}
+/*# sourceMappingURL=BrandList.module.css.map */

@@ -1,0 +1,230 @@
+.dashboard {
+  min-height: 60vh;
+  min-width: 60vw;
+  max-width: 95vw;
+  background: #f3f3f3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-shadow: 0 4px 4px #d5d5d5;
+          box-shadow: 0 4px 4px #d5d5d5;
+  border-radius: 5px;
+  overflow-y: hidden;
+}
+
+.nav__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  z-index: 2;
+  overflow-y: hidden;
+}
+
+.brands__list {
+  position: relative;
+  left: 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[3];
+      grid-template-columns: repeat(3, auto);
+  overflow-x: auto;
+  z-index: 3;
+  max-width: 100%;
+  background: rgba(0, 153, 117, 0.6);
+  -webkit-box-shadow: inset 0px 0px 2px #009975;
+          box-shadow: inset 0px 0px 2px #009975;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.brands__list::-webkit-scrollbar {
+  width: 0px;
+  /* Remove scrollbar space */
+  background: transparent;
+  height: 0;
+  /* Optional: just make scrollbar invisible */
+}
+
+.brands__list:hover .scroll__right,
+.brands__list:hover .scroll__left {
+  background: #f3f3f3;
+}
+
+.brands__list:hover .scroll__right svg,
+.brands__list:hover .scroll__left svg {
+  color: #d9d872;
+}
+
+.brands__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  overflow-x: auto;
+}
+
+.brands__container::-webkit-scrollbar {
+  width: 0px;
+  /* Remove scrollbar space */
+  background: transparent;
+  height: 0;
+  /* Optional: just make scrollbar invisible */
+}
+
+.scroll__right {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  z-index: 4;
+}
+
+.scroll__right:hover {
+  border: 1px solid #d9d872;
+  background: #f3f3f3;
+  cursor: pointer;
+}
+
+.scroll__right:hover svg {
+  color: #d9d872;
+}
+
+.scroll__right svg {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  color: transparent;
+  font-size: 1.2rem;
+}
+
+.scroll__left {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  z-index: 4;
+}
+
+.scroll__left:hover {
+  border: 1px solid #d9d872;
+  background: #f3f3f3;
+  cursor: pointer;
+}
+
+.scroll__left:hover svg {
+  color: #d9d872;
+}
+
+.scroll__left svg {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  color: transparent;
+  font-size: 1.2rem;
+}
+
+.listings__results {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 2;
+  overflow-y: hidden;
+}
+
+.listings__results:hover .scroll__left,
+.listings__results:hover .scroll__right {
+  background: #f3f3f3;
+}
+
+.listings__results:hover .scroll__right svg,
+.listings__results:hover .scroll__left svg {
+  color: #d9d872;
+}
+
+.pedal__view {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  z-index: 2;
+  overflow-y: hidden;
+  -webkit-box-shadow: 0 2px 2px #d5d5d5;
+          box-shadow: 0 2px 2px #d5d5d5;
+}
+
+@media screen and (max-width: 700px) {
+  .nav__top {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-bottom: 1px solid #eee;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    z-index: 2;
+    overflow-y: hidden;
+    padding: 1rem;
+  }
+  .pedal__view {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+    overflow-y: hidden;
+    -webkit-box-shadow: 0 2px 2px #d5d5d5;
+            box-shadow: 0 2px 2px #d5d5d5;
+  }
+}
+/*# sourceMappingURL=Dashboard.module.css.map */

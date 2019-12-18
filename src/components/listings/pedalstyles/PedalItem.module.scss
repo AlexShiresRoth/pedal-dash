@@ -52,3 +52,33 @@
 		color: #f3f3f3;
 	}
 }
+
+@media screen and (max-width: 700px) {
+	.pedal {
+		min-height: 5rem;
+		min-width: 10rem;
+		transition: all 0.3s ease-in-out;
+		overflow-y: hidden;
+
+		& img {
+			min-width: 3rem;
+			max-width: 3rem;
+			border-radius: 50%;
+			z-index: 1;
+		}
+		& p {
+			transition: all 0.3s ease-in-out;
+			color: $brand-text;
+			font-family: 'Fugaz One', sans-serif, serif;
+			z-index: 1;
+		}
+	}
+	.active {
+		box-shadow: 0 6px 6px darken(#eee, 25%);
+		background: rgba(0, 153, 117, 0.6);
+
+		& p {
+			color: #f3f3f3;
+		}
+	}
+}

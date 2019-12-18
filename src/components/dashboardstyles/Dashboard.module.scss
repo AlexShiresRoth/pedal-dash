@@ -37,10 +37,12 @@
 		background: transparent;
 		height: 0; /* Optional: just make scrollbar invisible */
 	}
-	&:hover .scroll__right, &:hover .scroll__left{
+	&:hover .scroll__right,
+	&:hover .scroll__left {
 		background: #f3f3f3;
 	}
-	&:hover .scroll__right svg, &:hover .scroll__left svg {
+	&:hover .scroll__right svg,
+	&:hover .scroll__left svg {
 		color: $brand-secondary;
 	}
 }
@@ -55,7 +57,6 @@
 		background: transparent;
 		height: 0; /* Optional: just make scrollbar invisible */
 	}
-
 }
 
 .scroll__right {
@@ -107,10 +108,12 @@
 	display: flex;
 	z-index: 2;
 	overflow-y: hidden;
-	&:hover .scroll__left, &:hover .scroll__right{
+	&:hover .scroll__left,
+	&:hover .scroll__right {
 		background: #f3f3f3;
 	}
-	&:hover .scroll__right svg, &:hover .scroll__left svg {
+	&:hover .scroll__right svg,
+	&:hover .scroll__left svg {
 		color: $brand-secondary;
 	}
 }
@@ -122,4 +125,29 @@
 	z-index: 2;
 	overflow-y: hidden;
 	box-shadow: 0 2px 2px darken(#eee, 10%);
+}
+
+@media screen and (max-width: 700px) {
+	.nav__top {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		border-bottom: 1px solid #eee;
+		flex-wrap: wrap;
+		width: 100%;
+		z-index: 2;
+		overflow-y: hidden;
+		padding: 1rem;
+	}
+	.pedal__view {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: wrap;
+		position: relative;
+		z-index: 2;
+		overflow-y: hidden;
+		box-shadow: 0 2px 2px darken(#eee, 10%);
+	}
 }

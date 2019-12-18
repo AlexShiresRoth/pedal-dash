@@ -1,0 +1,102 @@
+.pedal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #eee;
+  -webkit-box-shadow: 0 4px 4px #bbbbbb;
+          box-shadow: 0 4px 4px #bbbbbb;
+  position: relative;
+  min-height: 6rem;
+  min-width: 15rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  overflow-y: hidden;
+}
+
+.pedal:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 6px 6px #aeaeae;
+          box-shadow: 0 6px 6px #aeaeae;
+  background: rgba(0, 153, 117, 0.6);
+}
+
+.pedal:hover p {
+  color: #f3f3f3;
+}
+
+.pedal img {
+  min-width: 5rem;
+  max-width: 5rem;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.pedal p {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  color: #454d66;
+  font-family: 'Fugaz One', sans-serif, serif;
+  z-index: 1;
+}
+
+.pedal svg {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+
+.pedal svg path {
+  width: 100%;
+}
+
+.active {
+  -webkit-box-shadow: 0 6px 6px #aeaeae;
+          box-shadow: 0 6px 6px #aeaeae;
+  background: rgba(0, 153, 117, 0.6);
+}
+
+.active p {
+  color: #f3f3f3;
+}
+
+@media screen and (max-width: 700px) {
+  .pedal {
+    min-height: 5rem;
+    min-width: 10rem;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    overflow-y: hidden;
+  }
+  .pedal img {
+    min-width: 3rem;
+    max-width: 3rem;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  .pedal p {
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    color: #454d66;
+    font-family: 'Fugaz One', sans-serif, serif;
+    z-index: 1;
+  }
+  .active {
+    -webkit-box-shadow: 0 6px 6px #aeaeae;
+            box-shadow: 0 6px 6px #aeaeae;
+    background: rgba(0, 153, 117, 0.6);
+  }
+  .active p {
+    color: #f3f3f3;
+  }
+}
+/*# sourceMappingURL=PedalItem.module.css.map */
