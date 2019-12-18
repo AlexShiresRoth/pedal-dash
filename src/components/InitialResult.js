@@ -48,7 +48,7 @@ const InitialResult = ({ loading, pedalRes, pedalIndex, setIndex }) => {
 		if (content.includes('&amp;')) content.replace(/&amp;/g, '&');
 
 		return content.replace(
-			/<li>|<\/li>|<strong>|<\/strong>|<ul>|<\/ul>|<b>|<\/b>|<p>|<\/p>|<br>|<\/br>|<span>|<\/span>|<i>|<div>|<\/div>/g,
+			/<i>|<\/i>|<li>|<\/li>|<strong>|<\/strong>|<ul>|<\/ul>|<b>|<\/b>|<p>|<\/p>|<br>|<\/br>|<span>|<\/span>|<i>|<div>|<\/div>/g,
 			''
 		);
 	};
