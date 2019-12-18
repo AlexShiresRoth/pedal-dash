@@ -129,7 +129,7 @@ const Dashboard = ({ getPedal }) => {
 };
 
 Dashboard.propTypes = {
-	getPedals: PropTypes.func.isRequired,
+	getPedal: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => {
