@@ -566,6 +566,7 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    min-height: 20rem;
   }
   .pedal__container .column:nth-child(3) .image__container img {
     max-height: 20rem;
