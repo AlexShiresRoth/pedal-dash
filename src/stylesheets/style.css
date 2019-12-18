@@ -21,11 +21,14 @@ p {
   font-family: 'Lato', sans-serif, serif; }
 
 @media screen and (max-width: 700px) {
+  body {
+    background: #eee;
+    overflow-y: auto;
+    padding: 0; }
   h1 {
     font-family: 'Fugaz One', sans-serif, serif;
     color: #454d66;
     font-size: 1.5rem; }
   p {
     color: #454d66;
-    font-family: 'Lato', sans-serif, serif;
-    font-size: 85%; } }
+    font-family: 'Lato', sans-serif, serif; } }
