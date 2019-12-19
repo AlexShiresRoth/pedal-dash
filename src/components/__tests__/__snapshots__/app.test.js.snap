@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> renders the component 1`] = `undefined`;
+
+exports[`Renders app container component 1`] = `undefined`;

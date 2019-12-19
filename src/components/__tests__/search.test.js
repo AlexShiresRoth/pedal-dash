@@ -1,20 +1,28 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import { initialState, reducers } from '../../reducers';
+import { render, cleanup, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import App from '../../App';
 import Search from '../Search';
-jest.mock('axios');
 
-describe('<App />', () => {
-	it('renders the component', () => {
-		const container = render(<App />);
-		expect(container.firstChild).toMatchSnapshot();
-	});
+afterEach(cleanup);
+
+function renderWithRedux(ui, { initialState, store = createStore(combineReducers({ reducers, initialState })) } = {}) {
+	return {
+		...render(<Provider store={store}>{ui}</Provider>),
+		store,
+	};
+}
+
+test('can render component with redux', () => {
+	const searchCont = renderWithRedux(<Search />);
+	expect(searchCont.firstChild).toMatchSnapshot();
 });
 
-describe('<Search />', () => {
-	it('renders the component', () => {
-		const searchCont = render(<Search />);
-		expect(searchCont.firstChild).toMatchSnapshot();
+test('can render with redux with custom initial state', () => {
+	const { getByTestId } = renderWithRedux(<Search />, {
+		initialState: { query: '' },
 	});
+	expect(getByTestId('search-query')).toHaveTextContent('');
 });

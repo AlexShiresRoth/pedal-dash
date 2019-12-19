@@ -40,6 +40,7 @@ const Search = ({ getPedals, clearData }) => {
 					<MdSearch />
 				</button>
 				<input
+					data-testid="search-query"
 					type="text"
 					value={query}
 					name="query"
@@ -59,11 +60,4 @@ Search.propTypes = {
 	getPedals: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => {
-	return {
-		pedalRes: state.search.pedalRes,
-		loading: state.search.loading,
-	};
-};
-
-export default connect(mapStateToProps, { getPedals, clearData })(Search);
+export default connect(null, { getPedals, clearData })(Search);

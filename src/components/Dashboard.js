@@ -8,6 +8,7 @@ import dashboardStyles from './dashboardstyles/Dashboard.module.scss';
 import { MdChevronRight, MdChevronLeft } from 'react-icons/md';
 import { connect } from 'react-redux';
 import { getPedal } from '../actions/search';
+
 const Dashboard = ({ getPedal }) => {
 	const [scrolling, setScroll] = useState({
 		isScrolling: false,
