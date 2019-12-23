@@ -1,6 +1,7 @@
 import React from "react";
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
+import thunk from "redux-thunk";
 import { initialState, reducers } from "../../reducers";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
@@ -12,7 +13,10 @@ function renderWithRedux(
   ui,
   {
     initialState,
-    store = createStore(combineReducers({ reducers, initialState }))
+    store = createStore(
+      combineReducers({ reducers, initialState }),
+      applyMiddleware(thunk)
+    )
   } = {}
 ) {
   return {
